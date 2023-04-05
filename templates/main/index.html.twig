@@ -4,4 +4,9 @@
 
 {% block body %}
 <h1>Bienvenue chez les Ewoks d'Aldoran</h1>
+{# On affiche les messages flash, si l'email a bien été vérifié #}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %}
+
 {% endblock %}
