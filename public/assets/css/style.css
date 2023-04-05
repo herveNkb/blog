@@ -30,7 +30,7 @@ a:hover {
     font-family: 'Volkhov', serif;
 }
 
-/* Sous-titres */
+/* Sous-titres  et texte*/
 @font-face {
     font-family: 'Gentium Book Basic', serif;
 }
@@ -374,5 +374,57 @@ label {
 @media screen and (min-width: 800px) {
     .container-form-reset-password {
         margin: 0 50px;
+    }
+}
+
+/* VII) Page de reinitialiser-le-mot-de-passe/envoi-email*/
+.container-check-email {
+    margin: 80px 25px 0;
+}
+
+.text-check-email {
+    margin-bottom: 25px;
+}
+
+.text-check-email > p {
+    font-family: Gentium Book Basic, serif;
+}
+
+.container-check-email :nth-child(2n) {
+    text-align: center;
+}
+
+.text-check-email {
+    text-align: center;
+}
+
+.text-check-email a {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 800px) {
+    .container-check-email p {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container-check-email {
+        text-align: center;
+    }
+
+    .container-check-email {
+        margin: 100px 80px 0;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .container-check-email {
+        margin-top: 200px;
+    }
+
+    .text-check-email p {
+        font-size: 24px;
     }
 }
