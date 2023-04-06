@@ -379,7 +379,7 @@ label {
 
 /* VII) Page de reinitialiser-le-mot-de-passe/envoi-email*/
 .container-check-email {
-    margin: 80px 25px 0;
+    padding: 80px 25px 0;
 }
 
 .text-check-email {
@@ -400,11 +400,20 @@ label {
 
 .text-check-email a {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-style: italic;
 }
 
 @media screen and (min-width: 800px) {
+    .container-check-email {
+        padding-top: 200px;
+        height: calc(100vh - 214px);
+    }
+
     .container-check-email p {
+        font-size: 20px;
+    }
+
+    .text-check-email a {
         font-size: 20px;
     }
 }
@@ -412,19 +421,22 @@ label {
 @media screen and (min-width: 1200px) {
     .container-check-email {
         text-align: center;
-    }
-
-    .container-check-email {
-        margin: 100px 80px 0;
+        height: calc(100vh - 230px);
+        padding: 200px 50px 0;
     }
 }
 
 @media screen and (min-width: 1920px) {
     .container-check-email {
-        margin-top: 200px;
+        height: calc(100vh - 256px);
+        padding: 200px 50px 0;
     }
 
     .text-check-email p {
+        font-size: 24px;
+    }
+
+    .text-check-email a {
         font-size: 24px;
     }
 }
