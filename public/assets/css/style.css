@@ -8,7 +8,10 @@ IV) Formulaire de connexion
 V) Formulaire d'enregistrement
 VI) Formulaire de réinitialisation de mot de passe
 VII) Page de reinitialiser-le-mot-de-passe/envoi-email
- */
+VIII) Message "alert"
+IX) Page d'accueil
+*/
+
 
 /* I) Propriétés globales */
 body {
@@ -295,170 +298,194 @@ p, a {
         /* 214 px => navbar + footer */
         height: calc(100vh - 214px);
     }
+}
+
+.form-login {
+    padding-top: 80px;
+}
+
+@media screen and (min-width: 1200px) {
+    .container-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 224 px => navbar + footer */
+        height: calc(100vh - 240px);
     }
 
     .form-login {
-        padding-top: 80px;
+        width: 800px;
+        padding-top: 0;
     }
+}
 
-    @media screen and (min-width: 1200px) {
-        .container-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 224 px => navbar + footer */
-            height: calc(100vh - 240px);
-        }
-
-        .form-login {
-            width: 800px;
-            padding-top: 0;
-        }
-    }
-
-    @media screen and (min-width: 1920px) {
-        .container-form {
-            /* 256 px => navbar + footer */
-            height: calc(100vh - 256px);
-        }
-
-        .btn-login, .form-login label {
-            font-size: 24px;
-        }
-    }
-
-    /* V) Formulaire d'enregistrement */
+@media screen and (min-width: 1920px) {
     .container-form {
-        margin: 0 5px;
+        /* 256 px => navbar + footer */
+        height: calc(100vh - 256px);
     }
 
-    /* Espace entre les "inputs"*/
-    .form-control {
-        margin: 30px 0 30px;
+    .btn-login, .form-login label {
+        font-size: 24px;
+    }
+}
+
+/* V) Formulaire d'enregistrement */
+.container-form {
+    margin: 0 5px;
+}
+
+/* Espace entre les "inputs"*/
+.form-control {
+    margin: 30px 0 30px;
+}
+
+/* Texte "placeholder" */
+.form {
+    font-family: Gentium Book Basic, serif;
+}
+
+.form-check {
+    margin-bottom: 8px;
+}
+
+label {
+    color: #b6863a;
+}
+
+@media screen and (min-width: 800px) {
+    .form-control { /* Espace entre les "inputs"*/
+        margin: 50px 0 50px;
     }
 
-    /* Texte "placeholder" */
-    .form {
-        font-family: Gentium Book Basic, serif;
+    .form-register-tablet {
+        margin: 0 40px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container-pc {
+        width: 600px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .form-title {
+        margin-top: 150px;
     }
 
-    .form-check {
-        margin-bottom: 8px;
+    .form-label { /* Taille du texte des "placeholder" */
+        font-size: 18px;
     }
 
-    label {
-        color: #b6863a;
+    .form-check-label {
+        font-size: 18px;
     }
+}
 
-    @media screen and (min-width: 800px) {
-        .form-control { /* Espace entre les "inputs"*/
-            margin: 50px 0 50px;
-        }
+/* VI) Formulaire de réinitialisation de mot de passe */
+.container-form-reset-password {
+    margin-top: 50px;
+}
 
-        .form-register-tablet {
-            margin: 0 40px;
-        }
-    }
+.explicative-text-reset-password {
+    padding-top: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+}
 
-    @media screen and (min-width: 1200px) {
-        .container-pc {
-            width: 600px;
-        }
-    }
-
-    @media screen and (min-width: 1920px) {
-        .form-title {
-            margin-top: 150px;
-        }
-
-        .form-label { /* Taille du texte des "placeholder" */
-            font-size: 18px;
-        }
-
-        .form-check-label {
-            font-size: 18px;
-        }
-    }
-
-    /* VI) Formulaire de réinitialisation de mot de passe */
+@media screen and (min-width: 800px) {
     .container-form-reset-password {
-        margin-top: 50px;
+        margin: 0 50px;
     }
+}
 
-    .explicative-text-reset-password {
-        padding-top: 15px;
-        padding-bottom: 50px;
-        text-align: center;
-    }
+/* VII) Page de reinitialiser-le-mot-de-passe/envoi-email*/
+.container-check-email {
+    padding: 80px 25px 0;
+}
 
-    @media screen and (min-width: 800px) {
-        .container-form-reset-password {
-            margin: 0 50px;
-        }
-    }
+.text-check-email {
+    margin-bottom: 25px;
+}
 
-    /* VII) Page de reinitialiser-le-mot-de-passe/envoi-email*/
+.text-check-email > p {
+    font-family: Gentium Book Basic, serif;
+}
+
+.container-check-email :nth-child(2n) {
+    text-align: center;
+}
+
+.text-check-email {
+    text-align: center;
+}
+
+.text-check-email a {
+    font-style: italic;
+}
+
+@media screen and (min-width: 800px) {
     .container-check-email {
-        padding: 80px 25px 0;
+        padding-top: 200px;
+        /*calc() -> 214px = height de la navbar et du footer*/
+        height: calc(100vh - 214px);
     }
 
-    .text-check-email {
-        margin-bottom: 25px;
-    }
-
-    .text-check-email > p {
-        font-family: Gentium Book Basic, serif;
-    }
-
-    .container-check-email :nth-child(2n) {
-        text-align: center;
-    }
-
-    .text-check-email {
-        text-align: center;
+    .container-check-email p {
+        font-size: 20px;
     }
 
     .text-check-email a {
-        font-style: italic;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container-check-email {
+        text-align: center;
+        /*calc() -> 230px = height de la navbar et du footer*/
+        height: calc(100vh - 230px);
+        padding: 200px 50px 0;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .container-check-email {
+        /*calc() -> 256px = height de la navbar et du footer*/
+        height: calc(100vh - 256px);
+        padding: 200px 50px 0;
     }
 
-    @media screen and (min-width: 800px) {
-        .container-check-email {
-            padding-top: 200px;
-            /*calc() -> 214px = height de la navbar et du footer*/
-            height: calc(100vh - 214px);
-        }
-
-        .container-check-email p {
-            font-size: 20px;
-        }
-
-        .text-check-email a {
-            font-size: 20px;
-        }
+    .text-check-email p {
+        font-size: 24px;
     }
 
-    @media screen and (min-width: 1200px) {
-        .container-check-email {
-            text-align: center;
-            /*calc() -> 230px = height de la navbar et du footer*/
-            height: calc(100vh - 230px);
-            padding: 200px 50px 0;
-        }
+    .text-check-email a {
+        font-size: 24px;
     }
+}
 
-    @media screen and (min-width: 1920px) {
-        .container-check-email {
-            /*calc() -> 256px = height de la navbar et du footer*/
-            height: calc(100vh - 256px);
-            padding: 200px 50px 0;
-        }
+/*VIII) Message "alert" */
 
-        .text-check-email p {
-            font-size: 24px;
-        }
+.alert {
+    width: 250px;
+    text-align: center;
+}
 
-        .text-check-email a {
-            font-size: 24px;
-        }
+@media screen and (min-width: 800px) {
+    .alert {
+        width: 592px;
     }
+}
+
+@media screen and (min-width: 1200px) {
+    .alert {
+        width: 800px;
+    }
+}
+
+/*XI) Page d'accueil*/
+.home-title {
+    padding-bottom: 50px;
+}
