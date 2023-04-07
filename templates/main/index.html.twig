@@ -3,10 +3,14 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1>Bienvenue chez les Ewoks d'Aldoran</h1>
-{# On affiche les messages flash, si l'email a bien été vérifié #}
-    {% for message in app.flashes('success') %}
-        <div class=" alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %}
+    <h1 class="home-title">Bienvenue chez les Ewoks d'Aldoran</h1>
+
+    {# On affiche le message flash, si l'email a bien été vérifié #}
+    <div class="d-flex justify-content-center align-items-center">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success text-center"> {{ message }}</div>
+        {% endfor %}
+    </div>
 
 {% endblock %}
+
