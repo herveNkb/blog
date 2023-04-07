@@ -399,13 +399,13 @@ label {
 }
 
 .text-check-email a {
-    text-decoration: none;
     font-style: italic;
 }
 
 @media screen and (min-width: 800px) {
     .container-check-email {
         padding-top: 200px;
+        /*calc() -> 214px = height de la navbar et du footer*/
         height: calc(100vh - 214px);
     }
 
@@ -421,6 +421,7 @@ label {
 @media screen and (min-width: 1200px) {
     .container-check-email {
         text-align: center;
+        /*calc() -> 230px = height de la navbar et du footer*/
         height: calc(100vh - 230px);
         padding: 200px 50px 0;
     }
@@ -428,6 +429,7 @@ label {
 
 @media screen and (min-width: 1920px) {
     .container-check-email {
+        /*calc() -> 256px = height de la navbar et du footer*/
         height: calc(100vh - 256px);
         padding: 200px 50px 0;
     }
