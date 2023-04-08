@@ -41,9 +41,17 @@ class Articles
     #[ORM\OneToMany(mappedBy: 'articles', targetEntity: Comments::class, orphanRemoval: true)]
     private Collection $comment;
 
+    #[ORM\ManyToMany(targetEntity: Keywords::class, inversedBy: 'articles')]
+    private Collection $keywords;
+
+    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'articles')]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
+        $this->keywords = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,6 +169,54 @@ class Articles
                 $comment->setArticles(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Keywords>
+     */
+    public function getKeywords(): Collection
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keywords $keyword): self
+    {
+        if (!$this->keywords->contains($keyword)) {
+            $this->keywords->add($keyword);
+        }
+
+        return $this;
+    }
+
+    public function removeKeyword(Keywords $keyword): self
+    {
+        $this->keywords->removeElement($keyword);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        $this->categories->removeElement($category);
 
         return $this;
     }
