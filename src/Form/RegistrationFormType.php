@@ -27,8 +27,8 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                // au lieu d'être placé directement sur l'objet,
-                // celui-ci est lu et encodé dans le contrôleur.
+                //instead of being placed directly on the object,
+                // it is read and encoded in the controller.
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
