@@ -10,8 +10,4 @@ return [
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle::class => ['all' => true],
-    Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
-    Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
-    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
-    Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
 ];
