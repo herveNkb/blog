@@ -10,6 +10,7 @@ VI) Formulaire de réinitialisation de mot de passe
 VII) Page de reinitialiser-le-mot-de-passe/envoi-email
 VIII) Message "alert"
 IX) Page d'accueil
+X) Page des mentions légales
 */
 
 
@@ -488,4 +489,45 @@ label {
 /*XI) Page d'accueil*/
 .home-title {
     padding-bottom: 50px;
+}
+
+/* IX) Page des mentions légales */
+.legal-notice {
+    color: #fff;
+    margin: 80px 30px 150px 30px;
+}
+
+.legal-notice > h2, h3 {
+    margin: 30px 0;
+
+}
+
+@media screen and (min-width: 800px) {
+    .legal-notice {
+        margin: 80px 50px 80px 50px;
+    }
+
+    .legal-notice > h2, h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .legal-notice {
+        margin: 80px 100px 150px 100px;
+    }
+
+    .legal-notice > h2, h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .legal-notice {
+        margin: 80px 250px 150px 250px;
+    }
+
+    .legal-notice > h2, h3 {
+        font-size: 2rem;
+    }
 }
