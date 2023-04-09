@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des articles {% endblock %}
+
+{% block body %}
+
+    <h1>Liste des articles</h1>
+    {% for article in articles %}
+        <h2>{{ article.title }}</h2>
+{#  The "... | raw" is a filter for not display HTML tag #}
+        <div>{{ article.content | raw }}</div>
+    {% endfor %}
+
+
+
+{% endblock %}
