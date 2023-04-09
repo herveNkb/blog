@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
 class Articles
@@ -19,6 +20,9 @@ class Articles
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+   /**
+   * @Gedmo\Slug(fields={"title"})
+    */
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
