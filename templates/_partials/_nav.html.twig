@@ -33,7 +33,7 @@
                     <a class="nav-link" aria-current="page" href="{{ path('app_main') }}">Accueil</a>
                 </li>
                 <li class="nav-item pb-3 pb-lg-0 pe-lg-2">
-                    <a class="nav-link" href="#">Le blog</a>
+                    <a class="nav-link" aria-current="page" href="{{ path('actualites_app_articles') }}">Le blog</a>
                 </li>
                 {# Quand l'utilisateur est connecté les deux liens suivants sont apparents #}
                 {% if app.user %}
