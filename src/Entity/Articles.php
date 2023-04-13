@@ -8,8 +8,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
+#[Vich\Uploadable]
 class Articles
 {
     #[ORM\Id]
@@ -36,7 +39,17 @@ class Articles
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\Column(length: 255)]
+    /**
+     * @var string
+     */
     private ?string $featured_image = null;
+
+    #[Vich\UploadableField(mapping: 'featured_images', fileNameProperty: 'featured_image')]
+    // featured_images is the name of the mapping in config/packages/vich_uploader.yaml
+    /**
+     * @var File
+     */
+    private $imageFile;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
@@ -133,6 +146,20 @@ class Articles
         $this->featured_image = $featured_image;
 
         return $this;
+    }
+
+    public function setImageFile(File $image = null): void
+    {
+        $this->imageFile = $image;
+
+        if ($image) { // if 'image' has been uploaded
+            $this->updated_at = new \DateTime('now'); // set 'updatedAt' to 'now'
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getUsers(): ?Users
