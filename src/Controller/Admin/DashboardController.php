@@ -17,19 +17,21 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return parent::index();
+        return parent ::index();
     }
 
     public function configureDashboard(): Dashboard
     {
-        return Dashboard::new()
-            ->setTitle('Blog');
+        return Dashboard ::new()
+            -> setTitle('Blog');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-dashboard');
-         yield MenuItem::linkToCrud('Articles', 'fas fa-list', Articles::class);
-         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categories::class);
+        yield MenuItem ::linkToDashboard('Tableau de bord', 'fa fa-dashboard');
+        yield MenuItem ::subMenu('Articles', 'fa fa-article') -> setSubItems([
+            MenuItem ::linkToCrud('Édition', 'fas fa-book', Articles::class),
+            MenuItem ::linkToCrud('Catégories', 'fas fa-list', Categories::class),
+        ]);
     }
 }
