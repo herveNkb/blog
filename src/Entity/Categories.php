@@ -16,10 +16,11 @@ class Categories
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Gedmo\Slug(fields: ['name'])]
+
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
+    #[Gedmo\Slug(fields: ['name'])]
     #[ORM\Column(length: 60)]
     private ?string $slug = null;
 
