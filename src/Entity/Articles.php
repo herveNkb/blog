@@ -7,9 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Annotation as Gedmo;
+//use App\Entity\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
 #[Vich\Uploadable]
@@ -23,9 +24,7 @@ class Articles
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-   /**
-   * @Gedmo\Slug(fields={"title"})
-    */
+    #[Gedmo\Slug(fields: ['title'])]
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
