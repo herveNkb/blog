@@ -4,6 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Categories;
 use App\Entity\Articles;
+use App\Entity\Users;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -13,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[IsGranted('ROLE_ADMIN')]
+//    #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -23,7 +27,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard ::new()
-            -> setTitle('Blog');
+            -> setTitle('Le blog des Ewoks');
     }
 
     public function configureMenuItems(): iterable
@@ -33,5 +37,17 @@ class DashboardController extends AbstractDashboardController
             MenuItem ::linkToCrud('Édition', 'fas fa-book', Articles::class),
             MenuItem ::linkToCrud('Catégories', 'fas fa-list', Categories::class),
         ]);
+        yield MenuItem ::linkToCrud('Profil', 'fas fa-users', Users::class);
+        yield MenuItem ::linkToUrl('Retour à l\'accueil', 'fas fa-home', $this->generateUrl('app_main'));
+
     }
+
+    // Add "Details" button on admin index page
+    public function configureActions(): Actions
+    {
+        return parent ::configureActions()
+            ->add(Crud::PAGE_INDEX, Action::DETAIL);
+    }
+
+
 }
