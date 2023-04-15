@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
 
     }
 
-    // Add "Details" button on admin index page
+    // Add "consulter" button on admin index page
     public function configureActions(): Actions
     {
         return parent ::configureActions()
