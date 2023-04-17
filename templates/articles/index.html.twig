@@ -8,17 +8,17 @@
         {% for article in articles %}
             <section class="blog-section">
                 <h2 class="blog-h2">{{ article.title }}</h2>
-                <div class="blog-content">
-                    {{ article.content | raw }}  {#  The "... | raw" is a filter for not display HTML tag #}
-                </div>
-                <div class="blog-date">
-                    <p>Édité le {{ article.createdAt | date('d/m/Y') }}</p>
-                </div>
-                <div class="blog-image">
-                    <img
-                            src="{{ vich_uploader_asset(article, 'imageFile') }}"
-                            alt="Image de l'article {{ article.title }}"
-                    >
+                <div class="blog-container-flex">
+                    <div class="blog-content blog-date">
+                        {{ article.content | raw }}  {#  The "... | raw" is a filter for not display HTML tag #}
+                        <p>Édité le {{ article.createdAt | date('d/m/Y') }}</p>
+                    </div>
+                    <div class="blog-image">
+                        <img
+                                src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                                alt="Image de l'article {{ article.title }}"
+                        >
+                    </div>
                 </div>
             </section>
         {% endfor %}
