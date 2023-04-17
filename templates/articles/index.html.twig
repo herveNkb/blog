@@ -6,9 +6,12 @@
 
     <h1>Liste des articles</h1>
     {% for article in articles %}
-        <h2>{{ article.title }}</h2>
+        <h2 style="padding-top: 50px">{{ article.title }}</h2>
         {#  The "... | raw" is a filter for not display HTML tag #}
-        <div>{{ article.content | raw }}</div>
+        <div style="padding-bottom: 50px">{{ article.content | raw }}</div>
+        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="auto" height="300px" alt="{{ article.title }}">
+        {#        <img src="{{ asset( 'uploads/images/jar-jar-binks-643c017edf0f3384069897.png') }}" width="300" height="300"  alt="#"/>#}
+
     {% endfor %}
     {#  For display navigate arrow and number of page into pagination #}
     {{ knp_pagination_render(articles) }}
