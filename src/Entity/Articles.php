@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-//use App\Entity\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -38,17 +37,17 @@ class Articles
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\Column(length: 255)]
-    /**
-     * @var string
-     */
+//    /**
+//     * @var string
+//     */
     private ?string $featured_image = null;
 
     #[Vich\UploadableField(mapping: 'featured_images', fileNameProperty: 'featured_image')]
     // featured_images is the name of the mapping in config/packages/vich_uploader.yaml
-    /**
-     * @var File
-     */
-    private $imageFile;
+//    /**
+//     * @var File
+//     */
+    private ?File $imageFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
@@ -62,6 +61,8 @@ class Articles
 
     #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'articles')]
     private Collection $categories;
+
+    private \DateTime $createdAt;
 
     public function __construct()
     {
@@ -140,23 +141,23 @@ class Articles
         return $this->featured_image;
     }
 
-    public function setFeaturedImage(string $featured_image): self
+    public function setFeaturedImage(?string $featured_image): self
     {
         $this->featured_image = $featured_image;
 
         return $this;
     }
 
-    public function setImageFile(File $image = null): void
+    public function setImageFile(?File $imageFile = null): void
     {
-        $this->imageFile = $image;
+        $this->imageFile = $imageFile;
 
-        if ($image) { // if 'image' has been uploaded
-            $this->updated_at = new \DateTime('now'); // set 'updatedAt' to 'now'
+        if (null !== $imageFile) { // if 'imageFile' has been set
+            $this->createdAt = new \DateTime('now'); // set 'updatedAt' to 'now'
         }
     }
 
-    public function getImageFile()
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
