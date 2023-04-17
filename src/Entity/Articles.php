@@ -36,17 +36,11 @@ class Articles
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $updated_at = null;
 
-    #[ORM\Column(length: 255)]
-//    /**
-//     * @var string
-//     */
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $featured_image = null;
 
     #[Vich\UploadableField(mapping: 'featured_images', fileNameProperty: 'featured_image')]
     // featured_images is the name of the mapping in config/packages/vich_uploader.yaml
-//    /**
-//     * @var File
-//     */
     private ?File $imageFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
@@ -62,114 +56,114 @@ class Articles
     #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'articles')]
     private Collection $categories;
 
-    private \DateTime $createdAt;
-
     public function __construct()
     {
-        $this->comment = new ArrayCollection();
-        $this->keywords = new ArrayCollection();
-        $this->categories = new ArrayCollection();
+        $this -> comment = new ArrayCollection();
+        $this -> keywords = new ArrayCollection();
+        $this -> categories = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this -> id;
     }
 
     public function getTitle(): ?string
     {
-        return $this->title;
+        return $this -> title;
     }
 
     public function setTitle(string $title): self
     {
-        $this->title = $title;
+        $this -> title = $title;
 
         return $this;
     }
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return $this -> slug;
     }
 
     public function setSlug(string $slug): self
     {
-        $this->slug = $slug;
+        $this -> slug = $slug;
 
         return $this;
     }
 
     public function getContent(): ?string
     {
-        return $this->content;
+        return $this -> content;
     }
 
     public function setContent(string $content): self
     {
-        $this->content = $content;
+        $this -> content = $content;
 
         return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this -> created_at;
     }
 
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->created_at = $created_at;
+        $this -> created_at = $created_at;
 
         return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updated_at;
+        return $this -> updated_at;
     }
 
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
-        $this->updated_at = $updated_at;
+        $this -> updated_at = $updated_at;
 
         return $this;
     }
 
     public function getFeaturedImage(): ?string
     {
-        return $this->featured_image;
+        return $this -> featured_image;
     }
 
     public function setFeaturedImage(?string $featured_image): self
     {
-        $this->featured_image = $featured_image;
+        $this -> featured_image = $featured_image;
 
         return $this;
     }
 
     public function setImageFile(?File $imageFile = null): void
     {
-        $this->imageFile = $imageFile;
+        $this -> imageFile = $imageFile;
 
         if (null !== $imageFile) { // if 'imageFile' has been set
-            $this->createdAt = new \DateTime('now'); // set 'updatedAt' to 'now'
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this -> updated_at = new \DateTimeImmutable(); // set 'updatedAt'
         }
     }
 
     public function getImageFile(): ?File
     {
-        return $this->imageFile;
+        return $this -> imageFile;
     }
 
     public function getUsers(): ?Users
     {
-        return $this->users;
+        return $this -> users;
     }
 
     public function setUsers(?Users $users): self
     {
-        $this->users = $users;
+        $this -> users = $users;
 
         return $this;
     }
@@ -179,14 +173,14 @@ class Articles
      */
     public function getComment(): Collection
     {
-        return $this->comment;
+        return $this -> comment;
     }
 
     public function addComment(Comments $comment): self
     {
-        if (!$this->comment->contains($comment)) {
-            $this->comment->add($comment);
-            $comment->setArticles($this);
+        if (!$this -> comment -> contains($comment)) {
+            $this -> comment -> add($comment);
+            $comment -> setArticles($this);
         }
 
         return $this;
@@ -194,10 +188,10 @@ class Articles
 
     public function removeComment(Comments $comment): self
     {
-        if ($this->comment->removeElement($comment)) {
+        if ($this -> comment -> removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getArticles() === $this) {
-                $comment->setArticles(null);
+            if ($comment -> getArticles() === $this) {
+                $comment -> setArticles(null);
             }
         }
 
@@ -209,13 +203,13 @@ class Articles
      */
     public function getKeywords(): Collection
     {
-        return $this->keywords;
+        return $this -> keywords;
     }
 
     public function addKeyword(Keywords $keyword): self
     {
-        if (!$this->keywords->contains($keyword)) {
-            $this->keywords->add($keyword);
+        if (!$this -> keywords -> contains($keyword)) {
+            $this -> keywords -> add($keyword);
         }
 
         return $this;
@@ -223,7 +217,7 @@ class Articles
 
     public function removeKeyword(Keywords $keyword): self
     {
-        $this->keywords->removeElement($keyword);
+        $this -> keywords -> removeElement($keyword);
 
         return $this;
     }
@@ -233,13 +227,13 @@ class Articles
      */
     public function getCategories(): Collection
     {
-        return $this->categories;
+        return $this -> categories;
     }
 
     public function addCategory(Categories $category): self
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories->add($category);
+        if (!$this -> categories -> contains($category)) {
+            $this -> categories -> add($category);
         }
 
         return $this;
@@ -247,7 +241,7 @@ class Articles
 
     public function removeCategory(Categories $category): self
     {
-        $this->categories->removeElement($category);
+        $this -> categories -> removeElement($category);
 
         return $this;
     }
