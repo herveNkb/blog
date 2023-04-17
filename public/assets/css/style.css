@@ -1,20 +1,25 @@
-/* Index :
-I) Propriétés globales
-I-a) Polices
-I-b) "Headings" globales
+/*
+Index :
+I) Global properties
+I-a) Fonts
+I-b) Global "Headings"
 II) "navbar & footer"
-III) Boutons
-IV) Formulaire de connexion
-V) Formulaire d'enregistrement
-VI) Formulaire de réinitialisation de mot de passe
-VII) Page de reinitialiser-le-mot-de-passe/envoi-email
-VIII) Message "alert"
-IX) Page d'accueil
-X) Page des mentions légales
+III) Buttons
+IV) Login form
+V) Registration form
+VI) Password reset form
+VII) Reset-it page -password/send-email
+VIII) "Alert" message
+IX) Home page
+X) Blog page
+X-a) Paging
+
+
+XIIIIIIIIIIIII) Legal notice page
 */
 
 
-/* I) Propriétés globales */
+/* I) Global properties */
 body {
     background-color: #0d2935;
     color: #b6863a;
@@ -28,28 +33,27 @@ a:hover {
     color: #dd992c;
 }
 
-/* I-a) Polices */
+/* I-a) Fonts  */
 /* h1 */
 @font-face {
     font-family: 'Volkhov', serif;
 }
 
-/* Sous-titres  et texte*/
+/* Subtitles and text*/
 @font-face {
     font-family: 'Gentium Book Basic', serif;
 }
 
-/* I-b) "font-size" globales */
+/* I-b) Global "Headings"  */
 h1 {
-    /*margin-top: 50px;*/
-    font-size: 1.3rem;
+    margin-top: 70px;
+    font-size: 1.5rem;
     text-align: center;
     font-family: Volkhov, serif;
 }
 
 @media screen and (min-width: 800px ) {
     h1 {
-        padding-top: 70px;
         font-size: 2rem;
     }
 }
@@ -228,8 +232,8 @@ p, a {
     }
 }
 
-/* III) Boutons */
-/* Boutons de formulaire */
+/* III) Buttons  */
+/* Form buttons */
 .container-btn-form {
     text-align: right;
 }
@@ -253,7 +257,7 @@ p, a {
     cursor: pointer;
 }
 
-/* IV) Formulaire de connexion */
+/* IV) Login form */
 .container-form {
     padding: 0 50px;
 }
@@ -296,8 +300,7 @@ p, a {
 @media screen and (min-width: 800px) {
     .container-form {
         padding: 0 100px;
-        /* 214 px => navbar + footer */
-        height: calc(100vh - 214px);
+        height: calc(100vh - 214px); /* 214 px => navbar + footer */
     }
 }
 
@@ -310,8 +313,7 @@ p, a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* 224 px => navbar + footer */
-        height: calc(100vh - 240px);
+        height: calc(100vh - 240px);  /* 240 px => navbar + footer */
     }
 
     .form-login {
@@ -322,8 +324,7 @@ p, a {
 
 @media screen and (min-width: 1920px) {
     .container-form {
-        /* 256 px => navbar + footer */
-        height: calc(100vh - 256px);
+        height: calc(100vh - 256px); /* 256 px => navbar + footer */
     }
 
     .btn-login, .form-login label {
@@ -331,17 +332,17 @@ p, a {
     }
 }
 
-/* V) Formulaire d'enregistrement */
+/* V) Registration form */
 .container-form {
     margin: 0 5px;
 }
 
-/* Espace entre les "inputs"*/
+/* Space between "inputs" */
 .form-control {
     margin: 30px 0 30px;
 }
 
-/* Texte "placeholder" */
+/* Text "placeholder" */
 .form {
     font-family: Gentium Book Basic, serif;
 }
@@ -355,7 +356,7 @@ label {
 }
 
 @media screen and (min-width: 800px) {
-    .form-control { /* Espace entre les "inputs"*/
+    .form-control { /* Space between "inputs" */
         margin: 50px 0 50px;
     }
 
@@ -375,7 +376,7 @@ label {
         margin-top: 150px;
     }
 
-    .form-label { /* Taille du texte des "placeholder" */
+    .form-label { /* Placeholder text size */
         font-size: 18px;
     }
 
@@ -384,7 +385,7 @@ label {
     }
 }
 
-/* VI) Formulaire de réinitialisation de mot de passe */
+/* VI)  Password reset form */
 .container-form-reset-password {
     margin-top: 50px;
 }
@@ -401,7 +402,7 @@ label {
     }
 }
 
-/* VII) Page de reinitialiser-le-mot-de-passe/envoi-email*/
+/* VII) Reset-it page -password/send-email */
 .container-check-email {
     padding: 80px 25px 0;
 }
@@ -429,8 +430,7 @@ label {
 @media screen and (min-width: 800px) {
     .container-check-email {
         padding-top: 200px;
-        /*calc() -> 214px = height de la navbar et du footer*/
-        height: calc(100vh - 214px);
+        height: calc(100vh - 214px); /*calc() -> 214px = navbar and footer height*/
     }
 
     .container-check-email p {
@@ -445,16 +445,14 @@ label {
 @media screen and (min-width: 1200px) {
     .container-check-email {
         text-align: center;
-        /*calc() -> 230px = height de la navbar et du footer*/
-        height: calc(100vh - 230px);
+        height: calc(100vh - 230px); /*calc() -> 230px = navbar and footer height*/
         padding: 200px 50px 0;
     }
 }
 
 @media screen and (min-width: 1920px) {
     .container-check-email {
-        /*calc() -> 256px = height de la navbar et du footer*/
-        height: calc(100vh - 256px);
+        height: calc(100vh - 256px); /*calc() -> 256px = navbar and footer height*/
         padding: 200px 50px 0;
     }
 
@@ -467,7 +465,7 @@ label {
     }
 }
 
-/*VIII) Message "alert" */
+/*VIII) "Alert" message */
 
 .alert {
     width: 250px;
@@ -486,12 +484,88 @@ label {
     }
 }
 
-/*XI) Page d'accueil*/
+/*XI) Home page */
 .home-title {
     padding-bottom: 50px;
 }
 
-/* IX) Page des mentions légales */
+/* X) Blog page */
+.blog-container {
+    padding: 0 15px;
+}
+
+.blog-section {
+    background-color: #0f3141;
+    margin-top: 30px;
+    padding: 0 25px;
+    color: antiquewhite;
+}
+
+.blog-h1 {
+    color: antiquewhite;
+}
+
+.blog-h2 {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.blog-content {
+    font-size: 1rem;
+}
+
+.blog-date > p {
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.blog-image {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+}
+
+.blog-image > img {
+    width: auto;
+    height: 300px;
+}
+
+/* X-a) Paging */
+.pagination {
+    display: flex;
+    justify-content: end;
+    padding: 20px 30px 20px;
+}
+
+.page {
+    padding: 0 7px;
+}
+
+.next, .previous  {
+    padding: 0 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* IX) Legal notice page */
 .legal-notice {
     color: #fff;
     margin: 80px 30px 150px 30px;
