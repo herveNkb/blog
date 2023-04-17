@@ -506,8 +506,7 @@ label {
 }
 
 .blog-h2 {
-    padding-top: 30px;
-    padding-bottom: 10px;
+    padding: 30px 0 10px;
     font-size: 1.4rem;
     text-align: center;
 }
@@ -545,6 +544,43 @@ label {
 
 .next, .previous  {
     padding: 0 7px;
+}
+
+@media screen and (min-width: 800px) {
+    .blog-container {
+        padding: 0 50px;
+    }
+
+    .blog-section {
+        margin-top: 50px;
+        padding: 0 50px;
+    }
+
+    .blog-h2 {
+        font-size: 1.8rem;
+        padding: 50px 0 30px;
+    }
+
+    .blog-content {
+        font-size: 1.2rem;
+    }
+
+    .blog-date > p {
+        font-size: 1rem;
+    }
+
+    .blog-image {
+        padding: 40px 0;
+    }
+
+
+    .blog-image > img {
+        height: 400px;
+    }
+
+    .pagination {
+        padding: 20px 50px 20px;
+    }
 }
 
 
