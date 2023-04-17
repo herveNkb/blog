@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Listes des articles {% endblock %}
+{% block title %}Le blog des Ewoks{% endblock %}
 
 {% block body %}
-
-    <h1>Liste des articles</h1>
-    {% for article in articles %}
-        <h2 style="padding-top: 50px">{{ article.title }}</h2>
-        {#  The "... | raw" is a filter for not display HTML tag #}
-        <div style="padding-bottom: 50px">{{ article.content | raw }}</div>
-        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="auto" height="300px" alt="{{ article.title }}">
-        {#        <img src="{{ asset( 'uploads/images/jar-jar-binks-643c017edf0f3384069897.png') }}" width="300" height="300"  alt="#"/>#}
-
-    {% endfor %}
-    {#  For display navigate arrow and number of page into pagination #}
-    {{ knp_pagination_render(articles) }}
-
-
+    <main class="blog-container">
+        <h1 class="blog-h1">Le blog des Ewoks</h1>
+        {% for article in articles %}
+            <section class="blog-section">
+                <h2 class="blog-h2">{{ article.title }}</h2>
+                <div class="blog-content">
+                    {{ article.content | raw }}  {#  The "... | raw" is a filter for not display HTML tag #}
+                </div>
+                <div class="blog-date">
+                    <p>Édité le {{ article.createdAt | date('d/m/Y') }}</p>
+                </div>
+                <div class="blog-image">
+                    <img
+                            src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                            alt="Image de l'article {{ article.title }}"
+                    >
+                </div>
+            </section>
+        {% endfor %}
+        {#  For display navigate arrow and number of page into pagination #}
+        {{ knp_pagination_render(articles) }}
+    </main>
 {% endblock %}
