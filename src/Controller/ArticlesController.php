@@ -25,7 +25,7 @@ class ArticlesController extends AbstractController
         $articles = $paginator -> paginate(
             $data, // Data to paginate
             $request -> query -> getInt('page', 1), // Current page number, 1 by default
-            1 // Number of items per page
+            3 // Number of items per page
         );
         // We return the view with the list of articles
         return $this -> render('articles/index.html.twig', [
