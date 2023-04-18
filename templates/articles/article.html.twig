@@ -3,13 +3,21 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block body %}
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.createdAt | date }}</p>
-    <div>{{ article.content | raw }}</div>
-{# Afficher les catégories ou les commentaires, s'il y en a #}
-    {%  for categorie in article.categories %}
-        <p>{{ categorie.name }}</p>
-        <p>{{ comments.content}}</p>
-    {% endfor %}
-
+    <main class="blog-container">
+    <h1 class="blog-h1">Le blog des Ewoks</h1>
+    <section class="blog-section">
+        <h2 class="blog-h2">{{ article.title }}</h2>
+        <div class="blog-container-flex">
+            <div class="blog-content blog-date">
+                {{ article.content | raw }}  {#  The "... | raw" is a filter for not display HTML tag #}
+                <p>Édité le {{ article.createdAt | date('d/m/Y') }}</p>
+            </div>
+            <div class="blog-image">
+                <img
+                        src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                        alt="Image de l'article {{ article.title }}"
+                >
+            </div>
+        </div>
+    </section>
 {% endblock %}
