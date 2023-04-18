@@ -30,6 +30,25 @@
                     class: 'form-floating'
                 }
             }) }}
+
+            {{ form_row(registrationForm.lastname, {
+                label: 'Nom (falcultatif)',
+                attr: {
+                    placeholder: 'Nom'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+            {{ form_row(registrationForm.firstname, {
+                label: 'Prénom (falcultatif)',
+                attr: {
+                    placeholder: 'Prénom'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
             {{ form_row(registrationForm.agreeTerms) }}
 
             <div class="container-btn-form">
