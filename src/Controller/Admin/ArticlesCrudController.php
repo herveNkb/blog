@@ -27,7 +27,7 @@ class ArticlesCrudController extends AbstractCrudController
             yield TextField::new('slug', 'Slug')->hideOnForm(), // hideOnForm() is used to hide the field on the new and edit pages
             yield TextEditorField::new('content', 'Article')->hideOnIndex()->setNumOfRows(20), // hideOnIndex() is used to hide the field on the index page
             yield DateField::new('createdAt', 'Date de création')->hideOnForm(), // hideOnForm() is used to hide the field on the new and edit pages
-            yield TextField::new('imageFile', 'Télécharger une image')->setFormType(VichImageType::class)->onlyOnForms(), // onlyOnForms() is used to display the field only on the new and edit pages
+            yield TextField::new('imageFile', 'Taille maximum image : 2MB')->setFormType(VichImageType::class)->onlyOnForms(), // onlyOnForms() is used to display the field only on the new and edit pages
             yield ImageField::new('featured_image', 'Apercu')->setBasePath('uploads/images')->onlyOnIndex(), // onlyOnIndex() is used to display the field only on the index page
         ];
     }
