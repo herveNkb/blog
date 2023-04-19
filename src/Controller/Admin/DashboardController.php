@@ -11,13 +11,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-//    #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -30,6 +28,7 @@ class DashboardController extends AbstractDashboardController
             -> setTitle('Le blog des Ewoks');
     }
 
+//    Right menu
     public function configureMenuItems(): iterable
     {
         yield MenuItem ::linkToDashboard('Tableau de bord', 'fa fa-dashboard');
@@ -38,7 +37,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem ::linkToCrud('Catégories', 'fas fa-list', Categories::class),
         ]);
         yield MenuItem ::linkToCrud('Profil', 'fas fa-users', Users::class);
-        yield MenuItem ::linkToUrl('Retour à l\'accueil', 'fas fa-home', $this->generateUrl('app_main'));
+        yield MenuItem ::linkToUrl('Retour à l\'accueil', 'fas fa-home', $this -> generateUrl('app_main'));
 
     }
 
@@ -46,8 +45,6 @@ class DashboardController extends AbstractDashboardController
     public function configureActions(): Actions
     {
         return parent ::configureActions()
-            ->add(Crud::PAGE_INDEX, Action::DETAIL);
+            -> add(Crud::PAGE_INDEX, Action::DETAIL);
     }
-
-
 }
