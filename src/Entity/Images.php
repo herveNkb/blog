@@ -21,7 +21,7 @@ class Images
     private ?string $image_name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image_title = null;
+    public ?string $image_title = null;
 
     #[Vich\UploadableField(mapping: 'front_images', fileNameProperty: 'image_name')]
     // featured_images is the name of the mapping in config/packages/vich_uploader.yaml
@@ -56,7 +56,7 @@ class Images
         return $this->image_title;
     }
 
-    public function setImageTitle(?string $image_title): self
+    public function setImageTitle(string $image_title): self
     {
         $this->image_title = $image_title;
 
