@@ -1,16 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Bienvenue chez les Ewoks !{% endblock %}
 
 {% block body %}
-    <h1 class="home-title">Bienvenue chez les Ewoks d'Aldoran</h1>
+    <main>
+        <h1 class="home-title">Le blog des Ewoks d'Aldoran</h1>
 
-    {# On affiche le message flash, si l'email a bien été vérifié #}
-    <div class="d-flex justify-content-center align-items-center">
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success text-center"> {{ message }}</div>
+        {# We display the flash message, if the email has been verified #}
+        <div class="d-flex justify-content-center align-items-center">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success text-center"> {{ message }}</div>
+            {% endfor %}
+        </div>
+
+        {% for image in images %}
+        <section class="home-section">
+            <h2 class="home-h2">{{ image.image_title }}</h2>
+            <div class="home-img">
+                <img
+                        src="{{ vich_uploader_asset(image, 'imageFile') }}"
+                        alt="Image de présentation de '{{ image.image_title }}"
+                >
+            </div>
+            <div class="home-container-text">
+                <p class="home-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce faucibus
+                    dolor nibh, sed lacinia risus auctor vitae. Proin egestas dolor at dolor
+                    pretium, a volutpat turpis rhoncus. Suspendisse pulvinar tristique orci
+                    aliquet commodo. Fusce auctor, lectus quis condimentum varius, orci orci
+                    tincidunt velit, sed egestas libero enim et mi. Aliquam auctor ultrices est,
+                    ac aliquam ligula molestie sit amet. Curabitur sit amet tellus sed orci
+                    posuere ornare sit amet nec orci. Donec purus augue, sagittis in nunc quis,
+                    efficitur finibus neque. Ut sed felis in purus dapibus efficitur maximus
+                    quis lectus. Vestibulum eget erat sit amet erat consequat molestie.
+                    Aenean molestie tempus est id lobortis. Nunc mattis eros sit amet vehicula
+                    venenatis. Donec vulputate orci ut ante eleifend, ac blandit turpis luctus.
+                    Ut suscipit eros tellus, vel sodales purus varius et. Vivamus lectus odio,
+                    euismod sit amet nisi et, finibus suscipit ante. Praesent porttitor metus
+                    id cursus rutrum. Maecenas rutrum sem id massa rutrum, fermentum
+                    dapibus magna ultricies.
+                </p>
+            </div>
+        </section>
+
         {% endfor %}
-    </div>
+    </main>
 
 {% endblock %}
 
