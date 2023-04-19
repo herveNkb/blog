@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Categories;
 use App\Entity\Articles;
+use App\Entity\Images;
 use App\Entity\Users;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -36,6 +37,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem ::linkToCrud('Édition', 'fas fa-book', Articles::class),
             MenuItem ::linkToCrud('Catégories', 'fas fa-list', Categories::class),
         ]);
+        yield MenuItem ::linkToCrud('Images', 'fas fa-image', Images::class);
         yield MenuItem ::linkToCrud('Profil', 'fas fa-users', Users::class);
         yield MenuItem ::linkToUrl('Retour à l\'accueil', 'fas fa-home', $this -> generateUrl('app_main'));
 
