@@ -19,6 +19,10 @@ class Images
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image_title = null;
 
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Users $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Images
     public function setImageTitle(?string $image_title): self
     {
         $this->image_title = $image_title;
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
