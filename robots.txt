@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /composer.json/
+Disallow: /composer.lock/
+Disallow: /config/
+Disallow: /symfony.lock/
+Disallow: /migrations/
