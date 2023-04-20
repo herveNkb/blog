@@ -87,4 +87,10 @@ class Categories
 
         return $this;
     }
+
+    // magic method to display the name of the category in the admin panel
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }
