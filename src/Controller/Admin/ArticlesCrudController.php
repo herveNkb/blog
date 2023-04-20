@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Articles;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -29,6 +30,7 @@ class ArticlesCrudController extends AbstractCrudController
             yield DateField::new('createdAt', 'Date de création')->hideOnForm(), // hideOnForm() is used to hide the field on the new and edit pages
             yield TextField::new('imageFile', 'Taille maximum image : 2MB')->setFormType(VichImageType::class)->onlyOnForms(), // onlyOnForms() is used to display the field only on the new and edit pages
             yield ImageField::new('featured_image', 'Apercu')->setBasePath('uploads/images')->onlyOnIndex(), // onlyOnIndex() is used to display the field only on the index page
+            yield AssociationField::new('categories', 'Catégorie'), // AssociationField is used to display a field that is a relation to another entity
         ];
     }
 
