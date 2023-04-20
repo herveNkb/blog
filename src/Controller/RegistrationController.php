@@ -34,7 +34,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encoder le mot de passe en clair
+            // encode the password in plain text
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -45,7 +45,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // génére une URL signée et l'envoye par e-mail à l'utilisateur
+            // generate a signed URL and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('no-reply@blog.web-luberon.fr', 'Le blog des Ewoks'))
@@ -71,7 +71,7 @@ class RegistrationController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        // valider le lien de confirmation par e-mail, définit User :: isVerified = true et persiste
+        // validate email confirmation link, set User::isVerified=true and persist
         try {
             $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
         } catch (VerifyEmailExceptionInterface $exception) {
@@ -80,7 +80,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        // Modifie la redirection en cas de succès et affiche un message flash.
+        // Modifies the redirect on success and displays a flash message.
         $this->addFlash('success', 'Votre adresse email a été vérifiée.');
 
         return $this->redirectToRoute('app_main');

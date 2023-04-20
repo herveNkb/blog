@@ -34,8 +34,7 @@ class ChangePasswordFormType extends AbstractType
                     'label' => 'Répéter le mot de passe',
                 ],
                 'invalid_message' => 'Les deux mots de passe doivent correspondre.',
-                // Au lieu d'être placé directement sur l'objet,
-                // celui-ci est lu et encodé dans le contrôleur.
+                // Instead of being placed directly on the object, the data is read and encoded in the controller.
                 'mapped' => false,
             ])
         ;

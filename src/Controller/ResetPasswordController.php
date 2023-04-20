@@ -158,7 +158,7 @@ class ResetPasswordController extends AbstractController
 
         $mailer -> send($email);
 
-        // Stocke le jeton dans la session pour le récupérer dans la route de vérification des e-mails.
+        // Stores the token in the session for retrieval in the email verification route.
         $this -> setTokenObjectInSession($resetToken);
 
         return $this -> redirectToRoute('app_check_email');
