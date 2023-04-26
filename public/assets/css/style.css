@@ -13,11 +13,8 @@ VIII) "Alert" message
 IX) Home page
 X) Blog page
 X-a) Paging
-
-
-XIIIIIIIIIIIII) Legal notice page
+XI) Legal notice page
 */
-
 
 /* I) Global properties */
 body {
@@ -598,7 +595,6 @@ label {
     }
 }
 
-
 /* X) Blog page */
 .blog-container {
     padding: 0 15px;
@@ -684,9 +680,9 @@ label {
         padding: 40px 0;
     }
 
-
     .blog-image > img {
         height: 400px;
+        width: auto;
     }
 
     .pagination {
