@@ -52,9 +52,6 @@ class ArticlesCrudController extends AbstractCrudController
                 -> setBasePath('uploads/images')
                 -> onlyOnIndex(), // onlyOnIndex() is used to display the field only on the index page
             yield AssociationField ::new('categories', 'Catégorie') // AssociationField is used to display a field that is a relation to another entity
-            -> onlyOnIndex() // onlyOnIndex() is used to display the field only on the index page
-            -> hideOnDetail()
-            -> hideOnForm()// hideOnDetail() is used to hide the field on the detail page,
         ];
     }
 
