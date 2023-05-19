@@ -752,7 +752,7 @@ label {
 
 @media screen and (min-width: 1200px) {
     .legal-notice {
-        margin: 80px 100px 150px 100px;
+        margin: 80px 100px 150px;
     }
 
     .legal-notice > h2, h3 {
