@@ -40,7 +40,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem ::linkToCrud('Images', 'fas fa-image', Images::class);
         yield MenuItem ::linkToCrud('Profil', 'fas fa-users', Users::class);
         yield MenuItem ::linkToUrl('Retour à l\'accueil', 'fas fa-home', $this -> generateUrl('app_main'));
-
     }
 
     // Add "consulter" button on admin index page
