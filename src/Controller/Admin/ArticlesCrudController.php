@@ -34,7 +34,7 @@ class ArticlesCrudController extends AbstractCrudController
                 -> hideOnIndex() -> setNumOfRows(20), // hideOnIndex() is used to hide the field on the index page
             yield DateField ::new('createdAt', 'Date de création')
                 -> hideOnForm(), // hideOnForm() is used to hide the field on the new and edit pages
-            yield TextField ::new('imageFile', 'Taille maximum image : 2MB')
+            yield TextField ::new('imageFile', 'Poids max: 200 Ko, Taille max: 500x500 px, Formats autorisés: jpeg .jpg .png .gif')
                 -> setFormType(VichImageType::class) -> onlyOnForms()  // onlyOnForms() is used to display the field only on the new and edit pages
                 -> setFormTypeOptions([ // this option allows you to add a file input field with the accept="image/*" attribute
                     'constraints' => [
