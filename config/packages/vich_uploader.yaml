@@ -6,15 +6,8 @@ vich_uploader:
 
     mappings: # You can define as many mappings as you want
         featured_images:
-            uri_prefix: /blog/public/uploads/images # Path to featured images in browser
+            uri_prefix: /../uploads/images # Path to featured images in browser
             upload_destination:  '%kernel.project_dir%/public/uploads/images' # Path to featured images in source code
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer # SmartUniqueNamer: unique file name
 
-            delete_on_update: true # Delete old file when update
-
-        front_images:
-            uri_prefix: /blog/public/uploads/front-images # Path to front images in browser
-            upload_destination:  '%kernel.project_dir%/public/uploads/front-images' # Path to front images in source code
-            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer # SmartUniqueNamer: unique file name
-
-            delete_on_update: true # Delete old file when update
+            delete_on_update: true # Delete old file when update new one
